@@ -1,7 +1,8 @@
 body{
 	font-family: 'Source Serif Pro', serif;
 	margin: 0 auto;
-	width: 1000px;
+	max-width: 1000px;
+	flex: 1;
 	background-color: #1b2127;
 }
 
@@ -41,7 +42,9 @@ strong{
 	background-color: #1b2127;
 	display: flex;
 	justify-content: space-between;
-	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	height: 100px;
 }
 
 .header a{
@@ -50,18 +53,11 @@ strong{
 }
 
 .main-logo{
-	margin: 0;
-	width: 50%;
+	height: 60px;
 }
 
-.main-logo img{
-	width: 15%;
-	margin: 1rem;
-}
 
 .nav-menu{
-	width: 50%;
-	margin: auto;
 }
 
 .nav-menu ul{
@@ -81,15 +77,16 @@ strong{
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 2rem;
+	flex-wrap: wrap;
 }
 
 .text-hero{
 	flex-basis: 60%;
-	padding: 2rem;
 }
 
 .img-hero{
-	flex-basis: 40%;
+	flex-basis: 35%;
+	min-width: 300px;
 }
 
 .img-hero img{
@@ -101,16 +98,25 @@ strong{
 /*Portfolio style*/
 .portfolio{
 	background-color: #fafafa;
+	display: inline-block;
+	border-radius: 5px;
+}
+
+.project-list{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
 }
 
 .project{
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
 	border: 1px solid gray;
 	border-radius: 10px;
 	margin: 1rem 0 1rem 0;
 	padding: 1rem;
 	background-color: white;
+	flex-basis: calc(50% - 3rem);
 }
 
 .project-image-container{
@@ -162,6 +168,7 @@ strong{
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .job{
@@ -223,6 +230,7 @@ strong{
 	justify-content: space-between;
 	border-radius: 5px;
 	padding-left: 2rem;
+	flex-wrap: wrap;
 }
 
 .form-email *{
@@ -290,6 +298,7 @@ strong{
 	background-color: #1b2127;
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .footer a{
@@ -324,4 +333,107 @@ strong{
 
 .footer-end a{
 	font-size: 22px;
+}
+
+
+/*Desktop first start with biggest Media query*/
+
+@media screen and (max-width: 1024px) {
+	
+}
+
+@media screen and (max-width: 768px) {
+	.header{
+		display: block;
+		height: auto;
+		text-align: center;
+	}
+
+	.main-logo{
+		margin: 1rem 0;
+	}
+
+	.nav-menu{
+		margin: 0;
+	}
+
+	.nav-menu ul{
+		margin: 0;
+		padding: 0;
+		display: initial;
+	}
+
+	.nav-menu ul li{
+		height: 50px;
+		margin-right: 0;
+	}
+
+	.nav-menu ul li a{
+		display: flex;
+		justify-content: center;
+	}
+
+	.portfolio{
+		font-size: 15px;
+	}
+
+	.portfolio h2{
+		font-size: 2em;
+	}
+
+
+	.project-container *{
+		margin-bottom: 1rem;
+	}
+
+	.project-title{
+		font-size: 1.5em;
+	}
+
+	.project-tools{
+		font-size: 1em;
+	}
+
+	.project-date{
+		font-size: 1em;
+	}
+
+	.link-repo{
+		font-size: 1em;
+	}
+
+	.project-description{
+		font-size: 1em;
+	}
+
+	.portfolio h2{
+		text-align: center;
+	}
+
+	.project{
+		flex-direction: column;
+		flex-basis: calc(100% - 3rem);
+	}
+
+	.project-image-container{
+		text-align: center;
+	}
+
+	.project-image-container img{
+		width: auto;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.project-image-container img{
+		width: 100%;
+	}
+
+	.project-container{
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	
 }
