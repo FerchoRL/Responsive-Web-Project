@@ -164,15 +164,18 @@ strong{
 	margin: 0 3rem;
 }
 */
+
+.experiencie h2{
+	margin-top: 1rem;
+}
+
 .job-list{
 	display: flex;
 	justify-content: space-between;
-	flex-direction: row;
-	flex-wrap: wrap;
 }
 
 .job{
-	flex-basis: calc(50% - 3rem);
+	flex-basis: calc(50% - 1rem);
 	border-radius: 10px;
 	margin: 1rem 0rem 1rem 0;
 	overflow: hidden;
@@ -298,7 +301,6 @@ strong{
 	background-color: #1b2127;
 	display: flex;
 	justify-content: space-between;
-	flex-wrap: wrap;
 }
 
 .footer a{
@@ -308,14 +310,16 @@ strong{
 
 .footer-begin{
 	display: flex;
+	align-items: center;
 }
 
-.footer-begin p, .footer-end{
-	align-self: center;
+.footer-begin p, .footer-end p{
+	font-size: 15px;
 }
 
 .footer-begin img{
-	width: 10%;
+	width: 40px;
+	height: 40px;
 	margin-left: 2rem;
 }
 
@@ -326,13 +330,14 @@ strong{
 .footer-end{
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 }
 .footer-end p{
 	margin-right: 0.5rem;
 }
 
 .footer-end a{
-	font-size: 22px;
+	font-size: 15px;
 }
 
 
@@ -351,6 +356,7 @@ strong{
 
 	.main-logo{
 		margin: 1rem 0;
+		height: 40px;
 	}
 
 	.nav-menu{
@@ -374,36 +380,42 @@ strong{
 	}
 
 	.portfolio{
-		font-size: 15px;
+		/*Asign the font-size father*/
+		font-size: 18px;
 	}
 
 	.portfolio h2{
+		/*Use the font-size father as reference
+		1 em = 15px --- 2em = 30px*/
 		font-size: 2em;
-	}
-
-
-	.project-container *{
-		margin-bottom: 1rem;
 	}
 
 	.project-title{
 		font-size: 1.5em;
 	}
 
-	.project-tools{
+	.project-tools,
+	.project-date,
+	.link-repo,
+	.project-description
+	{
 		font-size: 1em;
 	}
 
-	.project-date{
-		font-size: 1em;
+	.job-info-container{
+		font-size: 15px;
 	}
 
-	.link-repo{
-		font-size: 1em;
+	.job-title{
+		font-size: 2em;
 	}
 
-	.project-description{
-		font-size: 1em;
+	.job-description{
+		font-size: 1.4em;
+	}
+
+	.project-container *{
+		margin-bottom: 1rem;
 	}
 
 	.portfolio h2{
@@ -422,6 +434,13 @@ strong{
 	.project-image-container img{
 		width: auto;
 	}
+
+	.job-list{
+		flex-direction: column;
+	}
+	.contact{
+		height: auto;
+	}
 }
 
 @media screen and (max-width: 480px) {
@@ -429,9 +448,57 @@ strong{
 		width: 100%;
 	}
 
+	.portfolio{
+		/*Asign the font-size father*/
+		font-size: 15px;
+	}
+
 	.project-container{
 		padding: 0;
 	}
+
+	.job-title{
+		font-size: 1.5em;
+	}
+
+	.job-description{
+		font-size: 1.1em;
+	}
+
+	.contact{
+		/*Debido a que estoy trabajando con desktop first
+		(usando max-width) a partir de 480px en adelante ya toma las propiedades
+		de 780, por lo cual no lo centra como quiero. Seria Recomendable usar mobile first*/
+		height: auto;
+		padding: 1em 0;
+		display: block;
+		text-align: center;
+	}
+
+	.send-email{
+		margin: 0 auto 1em;
+	}
+
+	.footer{
+		display: inline-block;
+		width: 100%;
+	}
+
+	.footer-begin{
+		align-items: center;
+		justify-content: center;
+	}
+	.footer-begin img{
+		margin: 0;
+		width: 30px;
+		height: 30px;
+	}	
+
+	.footer-end{
+		justify-content: center;
+	}
+
+
 }
 
 @media screen and (max-width: 320px) {
