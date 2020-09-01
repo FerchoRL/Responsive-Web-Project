@@ -37,7 +37,24 @@ strong{
 /* gris oscuro: #1d252c*/
 /* gris claro #626262*/
 /* background gris #1b2127*/
+
+.burger-button{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: rgba(0,0,0,0.8);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 2;
+	left: 5px;
+	top: 5px;
+	color: white;
+}
+
 /*Header styles*/
+
 .header{
 	background-color: #1b2127;
 	display: flex;
@@ -267,32 +284,33 @@ strong{
 
 .social-link{
 	display: inline-block;
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	margin-right: 2rem;
 }
+
 .facebook{
 	background-image: url(../images/fb.svg);
 	background-position: center center;
-	background-size: 50px 50px;
+	background-size: 40px 40px;
 }
 
 .twitter{
 	background-image: url(../images/twitter.svg);
 	background-position: center center;
-	background-size: 50px 50px;
+	background-size: 40px 40px;
 }
 
 .instagram{
 	background-image: url(../images/instagram.svg);
 	background-position: center center;
-	background-size: 50px 50px;
+	background-size: 40px 40px;
 }
 
 .github{
 	background-image: url(../images/github.svg);
 	background-position: center center;
-	background-size: 50px 50px;
+	background-size: 40px 40px;
 }
 
 /*Footer styles*/
@@ -340,18 +358,79 @@ strong{
 	font-size: 15px;
 }
 
+/*Icons from icomoon*/
 
-/*Desktop first start with biggest Media query*/
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?t9m7vl');
+  src:  url('../fonts/icomoon.eot?t9m7vl#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?t9m7vl') format('truetype'),
+    url('../fonts/icomoon.woff?t9m7vl') format('woff'),
+    url('../fonts/icomoon.svg?t9m7vl#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-github:before {
+  content: "\e900";
+}
+.icon-twitter:before {
+  content: "\e901";
+}
+.icon-instagram:before {
+  content: "\e902";
+}
+.icon-facebook:before {
+  content: "\e903";
+}
+.icon-menu:before {
+  content: "\e904";
+}
+
+.icon-github{
+	width: 300px;
+	height: 400px;
+}
+
+/*Desktop first starts with biggest Media query*/
 
 @media screen and (max-width: 1024px) {
 	
 }
 
 @media screen and (max-width: 768px) {
+
+	.burger-button{
+		display: flex;
+	}
+
 	.header{
 		display: block;
 		height: auto;
 		text-align: center;
+	}
+
+	.header a{
+		height: 40px;
+		font-size: 2em;
+		text-decoration: underline;
+		margin-bottom: 2em;
 	}
 
 	.main-logo{
@@ -361,12 +440,29 @@ strong{
 
 	.nav-menu{
 		margin: 0;
+		position: fixed;
+		background: rgba(5,111,255,.8);
+		z-index: 1;
+		top: 0;
+		/*Hidden menu*/
+		left: -100vw;
+		width: 100vw;
+		bottom: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: .3s;
+	}
+
+	.is-active{
+		left: 0;
 	}
 
 	.nav-menu ul{
 		margin: 0;
 		padding: 0;
 		display: initial;
+		height: auto;
 	}
 
 	.nav-menu ul li{
@@ -377,6 +473,21 @@ strong{
 	.nav-menu ul li a{
 		display: flex;
 		justify-content: center;
+	}
+
+	.hero{
+		flex-direction: column;
+		align-items: center;
+		margin-top: 0;
+	}
+
+	.text-hero{
+		flex-basis: 100%;
+		font-size: 30px;
+	}
+
+	.img-hero{
+		max-width: 60%
 	}
 
 	.portfolio{
@@ -444,8 +555,17 @@ strong{
 }
 
 @media screen and (max-width: 480px) {
+
 	.project-image-container img{
 		width: 100%;
+	}
+
+	.text-hero{
+		font-size: 20px;
+	}
+
+	.img-hero{
+		max-width: 50%
 	}
 
 	.portfolio{
@@ -477,6 +597,15 @@ strong{
 
 	.send-email{
 		margin: 0 auto 1em;
+	}
+
+	.social{
+		display: flex;
+		justify-content: space-evenly;
+	}
+
+	.social-link{
+		margin-right: 0;
 	}
 
 	.footer{
