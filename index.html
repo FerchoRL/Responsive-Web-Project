@@ -135,7 +135,7 @@
 		<section class="contact" id="contact">
 			<form action="/suscription/" class="form-email">
 				<h3>¿Codeamos juntos?</h3>
-				<input type="text" id="email" placeholder="Hechame tu email :)">
+				<input type="email" id="email" placeholder="Hechame tu email :)">
 				<input class="send-email" type="submit" value="Enviar">
 			</form>
 			<div class="social">
@@ -167,7 +167,7 @@
 			const menu = document.querySelector('.nav-menu');
 			const burgerButton = document.querySelector('#burger-menu');
 			//Add mediaQuery in JS
-			const ipad = window.matchMedia('screen and (max-width: 767px)');
+			const ipad = window.matchMedia('screen and (max-width: 768px)');
 			//If mediaQuery is correct, execute code
 			ipad.addListener(validation);
 			function validation(event){
@@ -177,6 +177,8 @@
 					burgerButton.removeEventListener('click', hideShow);
 				}
 			}
+			//To fix the bug when the app start the first time
+			validation(ipad);
 			function hideShow(){
 				if(menu.classList.contains('is-active')){
 					menu.classList.remove('is-active');
